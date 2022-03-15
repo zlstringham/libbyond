@@ -7,6 +7,8 @@ target_sources(byondcrc32
     PUBLIC
         ${CMAKE_CURRENT_LIST_DIR}/include/byond/crc32.h
     PRIVATE
+        src/tables.h
+        src/lut_impl.h
         src/combine.c
         src/crc32.c
 )
