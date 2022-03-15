@@ -12,6 +12,20 @@ target_sources(byondcrc32
         src/combine.c
         src/crc32.c
 )
+target_link_libraries(byondcrc32
+    cpu_features
+)
+# Add SIMD headers and compiler flags.
+if (CMAKE_SYSTEM_PROCESSOR MATCHES "(x86_64)|(AMD64|amd64)|(^i.86$)")
+    target_sources(byondcrc32 PRIVATE src/pclmul_impl.h)
+    if (MSVC)
+        target_compile_options(byondcrc32 PRIVATE /arch:AVX)
+    else()
+        target_compile_options(byondcrc32
+            PRIVATE -mpclmul -mssse3 -msse4.1 -msse2
+        )
+    endif()
+endif()
 add_library(byond::crc32 ALIAS byondcrc32)
 
 if (BUILD_TESTING)
