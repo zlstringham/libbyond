@@ -17,3 +17,4 @@ list(APPEND CMAKE_MODULE_PATH
 
 include(DownloadGTest)
 include(DownloadBenchmark)
+include(DownloadCpuFeatures)
