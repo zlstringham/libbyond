@@ -10,3 +10,10 @@ project(libbyond
     VERSION 0.1.0
     LANGUAGES C
 )
+
+list(APPEND CMAKE_MODULE_PATH
+  ${CMAKE_CURRENT_LIST_DIR}/cmake
+)
+
+include(DownloadGTest)
+include(DownloadBenchmark)
