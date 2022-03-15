@@ -18,3 +18,10 @@ list(APPEND CMAKE_MODULE_PATH
 include(DownloadGTest)
 include(DownloadBenchmark)
 include(DownloadCpuFeatures)
+include(CTest)
+
+if (BUILD_TESTING)
+  enable_language(CXX)
+endif ()
+
+add_subdirectory(crc32)
