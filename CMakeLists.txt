@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.11)
+
+# option() honors normal variables.
+# see: https://cmake.org/cmake/help/git-stage/policy/CMP0077.html
+if(POLICY CMP0077)
+  cmake_policy(SET CMP0077 NEW)
+endif()
+
+project(libbyond
+    VERSION 0.1.0
+    LANGUAGES C
+)
