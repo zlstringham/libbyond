@@ -22,12 +22,11 @@ uint32_t crc32_slice_by_16(uint32_t crc, const uint8_t *data, size_t len) {
   if (len >= 16) {
     crc = bswap_32(crc);
     do {
-      crc ^= *(uint32_t *)data;
       crc =
-          CRC32_WORD_TABLE[0xf][crc & 0xff] ^
-          CRC32_WORD_TABLE[0xe][(crc >> 0x08) & 0xff] ^
-          CRC32_WORD_TABLE[0xd][(crc >> 0x10) & 0xff] ^
-          CRC32_WORD_TABLE[0xc][crc >> 0x18] ^
+          CRC32_WORD_TABLE[0xf][data[0x0] ^ (crc & 0xff)] ^
+          CRC32_WORD_TABLE[0xe][data[0x1] ^ ((crc >> 0x08) & 0xff)] ^
+          CRC32_WORD_TABLE[0xd][data[0x2] ^ ((crc >> 0x10) & 0xff)] ^
+          CRC32_WORD_TABLE[0xc][data[0x3] ^ (crc >> 0x18)] ^
           CRC32_WORD_TABLE[0xb][data[0x4]] ^ CRC32_WORD_TABLE[0xa][data[0x5]] ^
           CRC32_WORD_TABLE[0x9][data[0x6]] ^ CRC32_WORD_TABLE[0x8][data[0x7]] ^
           CRC32_WORD_TABLE[0x7][data[0x8]] ^ CRC32_WORD_TABLE[0x6][data[0x9]] ^
