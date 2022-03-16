@@ -10,6 +10,7 @@ extern "C" {
 #include <stddef.h>
 #include <stdint.h>
 #endif  // #ifdef __cplusplus
+
 /**
  * @brief Initial value for CRC-32/BYOND checksums.
  */
