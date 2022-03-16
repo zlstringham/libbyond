@@ -2,7 +2,6 @@
 
 Unofficial C libraries for working with [BYOND](http://byond.com) data.
 
-
 ## License
 
 Licensed under either of
