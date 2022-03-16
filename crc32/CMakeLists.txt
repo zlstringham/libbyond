@@ -16,7 +16,7 @@ target_sources(byondcrc32
 target_link_libraries(byondcrc32
     cpu_features
 )
-# Add SIMD headers and compiler flags.
+# Add SIMD compiler flags.
 if (CMAKE_SYSTEM_PROCESSOR MATCHES "(x86_64)|(AMD64|amd64)|(^i.86$)")
     if (MSVC)
         target_compile_options(byondcrc32 PRIVATE /arch:AVX)
