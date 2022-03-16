@@ -27,5 +27,6 @@ endif()
 add_library(byond::crc32 ALIAS byondcrc32)
 
 if (BUILD_TESTING)
+    add_subdirectory(bench)
     add_subdirectory(test)
 endif()
