@@ -21,9 +21,7 @@ if (CMAKE_SYSTEM_PROCESSOR MATCHES "(x86_64)|(AMD64|amd64)|(^i.86$)")
     if (MSVC)
         target_compile_options(byondcrc32 PRIVATE /arch:AVX)
     else()
-        target_compile_options(byondcrc32
-            PRIVATE -mpclmul -mssse3 -msse4.1 -msse2
-        )
+        target_compile_options(byondcrc32 PRIVATE -mpclmul -msse4.1)
     endif()
 endif()
 add_library(byond::crc32 ALIAS byondcrc32)

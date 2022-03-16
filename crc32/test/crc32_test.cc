@@ -57,11 +57,9 @@ TEST(ByondCrc32Test, Crc32MatchesGolden) {
 TEST(ByondCrc32Test, PclmulMatchesGolden) {
 #ifdef CPU_FEATURES_ARCH_X86
   cpu_features::X86Features features = cpu_features::GetX86Info().features;
-  if (features.pclmulqdq && features.sse4_1 && features.ssse3 &&
-      features.sse2) {
-    // Test that len >= 256 matches. If len % 128 != 0, this should carry over
-    // to the LUT approach as well.
-    std::vector<uint8_t> data(1000, 0x13);
+  if (features.pclmulqdq && features.sse4_1) {
+    // Test the pclmul implementation. Try to maximize the branches taken.
+    std::vector<uint8_t> data(256 + 128 * 3 + 16 * 2 + 7, 0x13);
     EXPECT_EQ(byond_crc32_update(BYOND_CRC32_DEFAULT, data.data(), data.size()),
               golden(BYOND_CRC32_DEFAULT, data.data(), data.size()));
   } else {

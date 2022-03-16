@@ -20,8 +20,7 @@ uint32_t byond_crc32_update(uint32_t crc, const uint8_t *data, size_t len) {
   static int use_pclmul_isset = 0;
   if (!use_pclmul_isset) {
     X86Features features = GetX86Info().features;
-    use_pclmul = features.pclmulqdq && features.sse4_1 && features.ssse3 &&
-                 features.sse2;
+    use_pclmul = features.pclmulqdq && features.sse4_1;
     use_pclmul_isset = 1;
   }
   if (use_pclmul) {
