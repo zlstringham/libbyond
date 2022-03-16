@@ -9,6 +9,7 @@ target_sources(byondcrc32
     PRIVATE
         src/tables.h
         src/lut_impl.h
+        src/pclmul_impl.h
         src/combine.c
         src/crc32.c
 )
@@ -17,7 +18,6 @@ target_link_libraries(byondcrc32
 )
 # Add SIMD headers and compiler flags.
 if (CMAKE_SYSTEM_PROCESSOR MATCHES "(x86_64)|(AMD64|amd64)|(^i.86$)")
-    target_sources(byondcrc32 PRIVATE src/pclmul_impl.h)
     if (MSVC)
         target_compile_options(byondcrc32 PRIVATE /arch:AVX)
     else()

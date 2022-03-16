@@ -7,8 +7,8 @@ if(POLICY CMP0077)
 endif()
 
 project(libbyond
-    VERSION 0.1.0
-    LANGUAGES C
+  VERSION 0.1.0
+  LANGUAGES C
 )
 
 list(APPEND CMAKE_MODULE_PATH
@@ -21,6 +21,7 @@ include(DownloadCpuFeatures)
 include(CTest)
 
 if (BUILD_TESTING)
+  # googletest requires C++11.
   enable_language(CXX)
 endif ()
 
