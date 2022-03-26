@@ -1,6 +1,6 @@
 # CRC-32/BYOND
 
-BYOND's CRC algorithm is a non-bit reflected 32-bit checksum with polynomial 0xAF which does not XOR out.
+BYOND's CRC algorithm is a non-bit-reflected 32-bit checksum with polynomial 0xAF which does not XOR out.
 
 ## Benchmarks
 
